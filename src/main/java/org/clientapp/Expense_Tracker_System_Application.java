@@ -2,8 +2,6 @@ package org.clientapp;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -12,9 +10,7 @@ import java.util.Scanner;
 import org.model.BudgetModel;
 import org.model.CategoryModel;
 import org.model.ExpenseModel;
-import org.model.ReportModel;
 import org.model.UserModel;
-import org.repository.ReportRepository;
 import org.service.BudgetService;
 import org.service.BudgetServiceImpl;
 import org.service.CategoryService;
@@ -24,7 +20,6 @@ import org.service.ExpenseService;
 import org.service.ExpenseServiceImpl;
 import org.service.ReportService;
 import org.service.ReportServiceImpl;
-//import org.repository.DBState;
 import org.service.UserService;
 import org.service.UserServiceImpl;
 
