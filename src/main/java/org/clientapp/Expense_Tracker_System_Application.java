@@ -30,7 +30,7 @@ import org.service.UserServiceImpl;
 
 public class Expense_Tracker_System_Application {  //main Class
 
-	public static void main(String[] args) throws ParseException {  //main function
+	public static void main(String[] args) throws ParseException {  //main function main
 		Scanner sc = new Scanner(System.in);
 		UserService uservice = new UserServiceImpl();
 		ExpenseService eservice = new ExpenseServiceImpl();
