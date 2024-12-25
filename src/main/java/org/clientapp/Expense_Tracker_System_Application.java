@@ -28,7 +28,7 @@ import org.service.ReportServiceImpl;
 import org.service.UserService;
 import org.service.UserServiceImpl;
 
-public class Expense_Tracker_System_Application {
+public class Expense_Tracker_System_Application {  //main Class
 
 	public static void main(String[] args) throws ParseException {
 		Scanner sc = new Scanner(System.in);
