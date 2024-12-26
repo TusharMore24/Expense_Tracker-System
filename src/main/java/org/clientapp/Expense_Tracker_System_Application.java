@@ -67,7 +67,7 @@ public class Expense_Tracker_System_Application {  //main Class Class
 			System.out.println("Login successfully...");
 			int userId = uservice.getUserIdByUserName(userName);
 			CurrentUser_Id.setUser_Id(userId);
-			float Total_Expense = eservice.getTotalExpensesByUserId(userId);
+			 float Total_Expense = eservice.getTotalExpensesByUserId(userId);
 
 			System.out.println("Logged-in User ID: " + userId);
 			do {
@@ -86,8 +86,9 @@ public class Expense_Tracker_System_Application {  //main Class Class
 				System.out.println("9:Add Budget");
 				System.out.println("10:Show All Budgets");
 				System.out.println("11:Delete Budgets By Budget_id");
+				System.out.println("12:Update Budgets Amount");
 				System.out.println("________________________________________");
-				System.out.println("12:Show All Report");
+				System.out.println("13:Show All Report");
 				System.out.println("0:Exit from Application \n");
 				System.out.println("Enter The Key for Search ");
 				int key = sc.nextInt();
@@ -203,8 +204,8 @@ public class Expense_Tracker_System_Application {  //main Class Class
 					category_id = sc.nextInt();
 
 					System.out.println(
-							eservice.AddNewExpenses(new ExpenseModel(0, amount, category_id, description, date, userId))
-									? "Data Updated"
+							eservice.AddNewExpenses(new ExpenseModel(0,userId, amount, category_id, description, date))
+									? "Data Updated" 				//expense_id, user_id, amount, category_id, description, date
 									: "Some Problem");
 
 					break;
@@ -222,7 +223,7 @@ public class Expense_Tracker_System_Application {  //main Class Class
 					break;
 				case 9:
 					System.out.println("Enter UserAmount");
-					amount = sc.nextFloat();
+					 amount = sc.nextFloat();
 					System.out.println(bservice.isAddNewBudget(new BudgetModel(0, userId, amount)) ? "Data Updated"
 							: "Some Problem");
 					break;
@@ -263,7 +264,8 @@ public class Expense_Tracker_System_Application {  //main Class Class
 					System.out.println("1:User Expense Of Day");
 					System.out.println("2:User Expense Of Month");
 					System.out.println("3:User Expense Of Year");
-					System.out.println("4:Exist From Application");
+					System.out.println("4:User Amount and Description");
+					System.out.println("5:Exist From Application");
 
 					System.out.println("Enter Key For Search");
 					int Report = sc.nextInt();
@@ -272,8 +274,8 @@ public class Expense_Tracker_System_Application {  //main Class Class
 						System.out.println("Enter Data for chack expense");
 						sc.nextLine();
 						String day = sc.nextLine();
-						int value = rservice.getReportOfOneDay(day, userId);
-						System.out.println(day + ":" + value);
+						 rservice.getReportOfOneDay(day, userId);
+//						System.out.println(day + ":" + value);
 
 						break;
 					case 2:
@@ -283,8 +285,8 @@ public class Expense_Tracker_System_Application {  //main Class Class
 						String from = sc.nextLine();
 						System.out.println("Enter Data for chack expense");
 						String end = sc.nextLine();
-						value = rservice.getReportOfMonth(from, end, userId);
-						System.out.println(from + " To " + end + ":" + value);
+						rservice.getReportOfMonth(from, end, userId);
+//						System.out.println(from + " To " + end + ":" + value);
 						break;
 					case 3:
 						System.out.println("Enter Date Of Year");
@@ -293,10 +295,15 @@ public class Expense_Tracker_System_Application {  //main Class Class
 						from = sc.nextLine();
 						System.out.println("Enter Data for chack expense");
 						end = sc.nextLine();
-						value = rservice.getReportOfYear(from, end, userId);
-						System.out.println(from + " To " + end + ":" + value);
+						 rservice.getReportOfYear(from, end, userId);
+//						System.out.println(from + " To " + end + ":" + value);
 						break;
 					case 4:
+						System.out.println("-----------------------------");
+						rservice.getAmountDiscriptionOfUser(userId);
+						
+						break;
+					case 5:
 						System.exit(0);
 						break;
 

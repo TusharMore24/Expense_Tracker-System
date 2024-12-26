@@ -6,24 +6,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.model.BudgetModel;
+import org.service.CurrentUser_Id;
 
 public class BudgetRepositoryImpl extends DBState implements BudgetRepository {
             List list;
+            
             float beforeBudget=0;
-	@Override
-	public boolean isAddNewBudget(BudgetModel bmodel) {
-		try {
-			stmt=conn.prepareStatement("insert into budgets values(0,?,?)");
-			stmt.setInt(1,bmodel.getUser_id());
-			stmt.setFloat(2, bmodel.getBudget_amount());
-			int value=stmt.executeUpdate();
-			return value>0?true:false;
-		}
-		catch(SQLException ex) {
-			System.out.println("Error is"+ex);
-		}
-		return false;
-	}
+            @Override
+            public boolean isAddNewBudget(BudgetModel bmodel) {
+                try {
+             
+                    stmt = conn.prepareStatement("INSERT INTO budgets (user_id, budget_amount) VALUES (?, ?)");
+                    stmt.setInt(1, bmodel.getUser_id());
+                    stmt.setFloat(2, bmodel.getBudget_amount());
+                    int value = stmt.executeUpdate();
+
+                    return value > 0 ?true:false;
+                } catch (SQLException ex) {
+                    System.out.println("Error: " + ex.getMessage());
+                }
+                return false;
+            }
 
 	@Override
 	public List<BudgetModel> showAllBudget() {

@@ -28,4 +28,10 @@ public class ReportServiceImpl implements ReportService {
 		return rr.getReportOfYear(date1, date2, user_id);
 	}
 
+	@Override
+	public int getAmountDiscriptionOfUser(int user_id) {
+		// TODO Auto-generated method stub
+		return rr.getAmountDiscriptionOfUser(user_id);
+	}
+
 }

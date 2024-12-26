@@ -3,12 +3,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.model.ExpenseModel;
 import org.service.CurrentUser_Id;
-
-import lombok.Data;
 
 public class ExpenseRepositoryImpl extends DBState implements ExpenseRepository {
 	CurrentUser_Id id;
@@ -41,7 +38,7 @@ public class ExpenseRepositoryImpl extends DBState implements ExpenseRepository 
 		  stmt.setInt(1,expens.getExpense_id()); 
 		  stmt.setInt(2,id.getUser_Id());
 		  stmt.setFloat(3,  expens.getAmount());
-		  stmt.setFloat(4,  expens.getCategory_id());
+		  stmt.setInt(4,  expens.getCategory_id());
 		  stmt.setString(5, expens.getDescription());
 		  stmt.setDate(6, new java.sql.Date(expens.getDate().getTime()));
 		   int value= stmt.executeUpdate();
@@ -55,7 +52,6 @@ public class ExpenseRepositoryImpl extends DBState implements ExpenseRepository 
 		return false;
 	}
 
-
 	@Override
 	public List<ExpenseModel> showAllExpenses() {
 		List<ExpenseModel> list= new ArrayList();
@@ -64,7 +60,7 @@ public class ExpenseRepositoryImpl extends DBState implements ExpenseRepository 
 			ResultSet v=stmt.executeQuery();
 			
 			while(v.next()) {
-				list.add(new ExpenseModel(v.getInt(1),v.getFloat(2),v.getInt(3),v.getString(4),v.getDate(5),v.getInt(6)));
+				list.add(new ExpenseModel(v.getInt(1),v.getInt(6),v.getFloat(2),v.getInt(3),v.getString(4),v.getDate(5)));
 			}
 			return list.size() > 0 ? list : null;
 		}
@@ -87,9 +83,11 @@ public class ExpenseRepositoryImpl extends DBState implements ExpenseRepository 
 	    } catch (SQLException ex) {
 	        System.err.println("Error fetching total expenses: " + ex.getMessage());
 	    }
-	    return 0; // Default to 0 if no data or an error occurs
+	    return  0; 
 	}
-
+	
+	
+	
 
 	
 }
