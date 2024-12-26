@@ -2,11 +2,6 @@ package org.repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.model.ReportModel;
 
 public class ReportRepositoryImpl extends DBState implements ReportRepository {
 	  float total_Budget=0;

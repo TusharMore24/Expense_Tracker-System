@@ -198,13 +198,13 @@ public class Expense_Tracker_System_Application {  //main Class Class
 					description = sc.nextLine();
 
 					System.out.println("Enter date (YYYY-MM-DD)");
-					Date date = new SimpleDateFormat("yyyy-MM-dd").parse(sc.nextLine());
+					String date = sc.nextLine();                     //new SimpleDateFormat("yyyy-MM-dd").parse(sc.nextLine());
 
 					System.out.println("Enter category_Id");
 					category_id = sc.nextInt();
 
 					System.out.println(
-							eservice.AddNewExpenses(new ExpenseModel(0,userId, amount, category_id, description, date))
+							eservice.AddNewExpenses(new ExpenseModel(0,userId, amount, description, date, category_id))
 									? "Data Updated" 				//expense_id, user_id, amount, category_id, description, date
 									: "Some Problem");
 
@@ -215,7 +215,7 @@ public class Expense_Tracker_System_Application {  //main Class Class
 					if (clist != null) {
 						clist.forEach((v1) -> System.out
 								.println(v1.getExpense_id() + "\t" + v1.getUser_id() + "\t" + v1.getCategory_id() + "\t"
-										+ v1.getAmount() + "\t" + v1.getDescription() + "\t" + v1.getDate()));
+										+ v1.getAmount() + "\t\t" + v1.getDescription() + "\t\t\t" + v1.getDate()));
 					} else {
 						System.out.println("Some Problem....");
 					}

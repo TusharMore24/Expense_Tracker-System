@@ -12,8 +12,8 @@ public class ExpenseModel {
   private int expense_id;
   private int user_id;
   private float amount;
-  private int category_id;
   private String description;
-  private Date date;
+  private String date;
+  private int category_id;
  
 }

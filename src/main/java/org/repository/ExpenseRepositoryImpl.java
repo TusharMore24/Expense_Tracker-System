@@ -40,7 +40,7 @@ public class ExpenseRepositoryImpl extends DBState implements ExpenseRepository 
 		  stmt.setFloat(3,  expens.getAmount());
 		  stmt.setInt(4,  expens.getCategory_id());
 		  stmt.setString(5, expens.getDescription());
-		  stmt.setDate(6, new java.sql.Date(expens.getDate().getTime()));
+		  stmt.setString(6,expens.getDate());
 		   int value= stmt.executeUpdate();
 		  
 		   return value>0?true:false;
@@ -60,7 +60,7 @@ public class ExpenseRepositoryImpl extends DBState implements ExpenseRepository 
 			ResultSet v=stmt.executeQuery();
 			
 			while(v.next()) {
-				list.add(new ExpenseModel(v.getInt(1),v.getInt(6),v.getFloat(2),v.getInt(3),v.getString(4),v.getDate(5)));
+				list.add(new ExpenseModel(v.getInt(1),v.getInt(2),v.getFloat(3),v.getString(4),v.getString(5),v.getInt(6)));
 			}
 			return list.size() > 0 ? list : null;
 		}
