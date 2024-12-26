@@ -1,9 +1,6 @@
 package org.service;
 
-import java.util.Date;
-import java.util.List;
 
-import org.model.ReportModel;
 import org.repository.ReportRepository;
 import org.repository.ReportRepositoryImpl;
 
