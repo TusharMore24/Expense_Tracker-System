@@ -76,8 +76,6 @@ public class BudgetRepositoryImpl extends DBState implements BudgetRepository {
 				return value>0?true:false;
 				
 			}
-	
-			
 		}
 		catch(SQLException ex) {
 			System.out.println("Error is"+ex);
