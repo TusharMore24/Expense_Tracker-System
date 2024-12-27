@@ -298,11 +298,11 @@ public class Expense_Tracker_System_Application {  //main Class
 						break;
 					case 3:
 //						System.out.println("Enter Date Of Year");
-						System.out.println("Enter Starting Year  (YYYY-MM-DD)");
+						System.out.println("Enter  Year  (YYYY)");
 						sc.nextLine();
-						from = sc.nextLine();
-						System.out.println("Enter Ending Year (YYYY-MM-DD)");
-						end = sc.nextLine();
+						int year=sc.nextInt();
+						from = year+"-01-01";
+						end = year+"-12-31";
 						 rservice.getReportOfYear(from, end, userId);
 //						System.out.println(from + " To " + end + ":" + value);
 						break;
