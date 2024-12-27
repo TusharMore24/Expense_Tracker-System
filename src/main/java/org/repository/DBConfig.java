@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.sql.*;
 import java.util.Properties;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 public class DBConfig {
 	private static Connection conn;
@@ -11,6 +14,7 @@ public class DBConfig {
 	private static CallableStatement ctmt;
 	private static ResultSet rs;
 	private static DBConfig db;
+	private static final Logger logger = LogManager.getLogger(DBConfig.class);
 
 	protected DBConfig() {
 		try {
@@ -26,7 +30,7 @@ public class DBConfig {
 			String url = p.getProperty("url");
 
 			conn = DriverManager.getConnection(url, userName, passWord);
-			System.out.println("Connection established successfully!");
+			logger.info("Connection established successfully!");
 		} catch (Exception ex) {
 			throw new RuntimeException("Error establishing database connection: " + ex.getMessage(), ex);
 		}

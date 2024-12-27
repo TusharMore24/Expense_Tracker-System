@@ -1,12 +1,11 @@
 package org.clientapp;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.model.BudgetModel;
 import org.model.CategoryModel;
 import org.model.ExpenseModel;
@@ -23,20 +22,33 @@ import org.service.ReportServiceImpl;
 import org.service.UserService;
 import org.service.UserServiceImpl;
 
-public class Expense_Tracker_System_Application {  //main Class Class
 
-	public static void main(String[] args) throws ParseException {  //main function main
+
+
+public class Expense_Tracker_System_Application {  //main Class 
+
+	
+	
+	private static final Logger logger = LogManager.getLogger(Expense_Tracker_System_Application.class);
+
+	
+
+	public static void main(String[] args) {	
+		logger.info("Main Method Start");
+	
 		Scanner sc = new Scanner(System.in);
+		
 		UserService uservice = new UserServiceImpl();
 		ExpenseService eservice = new ExpenseServiceImpl();
 		CategoryService cservice = new CategoryServiceImpl();
 		BudgetService bservice = new BudgetServiceImpl();
 		ReportService rservice = new ReportServiceImpl();
-		System.out.println("Do You wanto Add New Account ");
+		System.out.println("======= WEL COME TO EXPENSE TRACKER SYSTEM =======");
+		System.out.println("Do you have account or wants to create New Account? ");
 		String yes = sc.nextLine();
-		if (yes.equalsIgnoreCase("yes")) {
+		
+		if (yes.equalsIgnoreCase("no")) {
 			System.out.println("Enete User Name");
-			sc.nextLine();
 			String userName = sc.nextLine();
 
 			System.out.println("Enter Password:");
@@ -56,6 +68,7 @@ public class Expense_Tracker_System_Application {  //main Class Class
 
 		}
 
+		System.out.println("Now you can login.............");
 		System.out.println("Enter UserName");
 
 		String userName = sc.nextLine();
@@ -76,18 +89,18 @@ public class Expense_Tracker_System_Application {  //main Class Class
 				System.out.println("2:Get All User");
 				System.out.println("3:Delete User By User_Id");
 				System.out.println("4:Update User By UserName");
-				System.out.println("________________________________________");
+//				System.out.println("________________________________________");
 				System.out.println("5:Add New Category");
 				System.out.println("6:Show All Category");
-				System.out.println("________________________________________");
+//				System.out.println("________________________________________");
 				System.out.println("7:Add New Expenses");
 				System.out.println("8:Show All Expenses");
-				System.out.println("________________________________________");
+//				System.out.println("________________________________________");
 				System.out.println("9:Add Budget");
 				System.out.println("10:Show All Budgets");
 				System.out.println("11:Delete Budgets By Budget_id");
 				System.out.println("12:Update Budgets Amount");
-				System.out.println("________________________________________");
+//				System.out.println("________________________________________");
 				System.out.println("13:Show All Report");
 				System.out.println("0:Exit from Application \n");
 				System.out.println("Enter The Key for Search ");
@@ -122,8 +135,8 @@ public class Expense_Tracker_System_Application {  //main Class Class
 					if (o.isPresent()) {
 						List<UserModel> list = o.get();
 						list.forEach((u) -> System.out
-								.println(u.getUser_id() + "  " + u.getUserName() + "\t" + u.getPassWord() + "\t"
-										+ u.getEmail() + "\t" + u.getP_number() + "\t" + u.getAddress()));
+								.println(u.getUser_id() + "\t" + u.getUserName() + "\t\t" + u.getPassWord() + "\t\t"
+										+ u.getEmail() + "\t\t\t" + u.getP_number() + "\t\t" + u.getAddress()));
 					} else {
 						System.out.println("There is NO data Present");
 					}
@@ -183,7 +196,7 @@ public class Expense_Tracker_System_Application {  //main Class Class
 				case 6:
 					List<CategoryModel> list = cservice.AllCatrgory();
 					if (list != null) {
-						list.forEach((v) -> System.out.println(v.getCategory_id() + "\t" + v.getCategory_name() + "\t" + v.getDiscrption()));
+						list.forEach((v) -> System.out.println(v.getCategory_id() + "\t" + v.getCategory_name() + "\t\t" + v.getDiscrption()));
 					} else {
 						System.out.println("Some Problem Is there...");
 					}
@@ -328,6 +341,11 @@ public class Expense_Tracker_System_Application {  //main Class Class
 		} else {
 			System.err.println("User Not Found.....");
 		}
+		
+		logger.info("Main method end...");
+		
+
+		
 	}
 
 }
