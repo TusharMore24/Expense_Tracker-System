@@ -1,14 +1,18 @@
 package org.repository;
 
-import java.awt.dnd.peer.DropTargetPeer;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import org.model.UserModel;
 
 public class UserRepositoryImpl extends DBState implements UserRepository {
+	
+   private static final Logger logger= LogManager.getFormatterLogger(UserRepositoryImpl.class);
 	List<UserModel> list;
 	@Override
 	public boolean isAddNewUser(UserModel user)  {
@@ -24,7 +28,7 @@ public class UserRepositoryImpl extends DBState implements UserRepository {
 		    
 		}
 		catch(SQLException ex) {
-			System.out.println("Error is"+ex);
+			logger.error("UserRepositoryImpl::  SQL Exception generate in isAddNewUser method");
 		}
 		 return false;
 	}
@@ -43,8 +47,8 @@ public class UserRepositoryImpl extends DBState implements UserRepository {
 			
 		}
 		catch(SQLException ex) {
-			System.out.println("Error is"+ex);
-		}
+			logger.error("UserRepositoryImpl::  SQL Exception generate in getAllUser method");
+					}
 		
 		
 		return null;
@@ -59,7 +63,8 @@ public class UserRepositoryImpl extends DBState implements UserRepository {
 			return value>0 ? true :false;
 		}
 		catch(SQLException ex) {
-			System.out.println("Error is"+ex);
+			logger.error("UserRepositoryImpl::  SQL Exception generate in deleteUserById method");
+				
 		}
 		return false;
 	}
@@ -79,8 +84,8 @@ public class UserRepositoryImpl extends DBState implements UserRepository {
 			
 		}
 		catch(SQLException ex) {
-			System.out.println("Error is"+ex);
-		}
+			logger.error("UserRepositoryImpl::  SQL Exception generate in updateUserByName method");
+					}
 		
 		return false;
 	}
@@ -99,8 +104,8 @@ public class UserRepositoryImpl extends DBState implements UserRepository {
 		        }
 		}
 		catch(SQLException ex) {
-			System.out.println("Error is "+ex);
-		}
+			logger.error("UserRepositoryImpl::  SQL Exception generate in UserLoginByNamePassWard method");
+					}
 		
 		return false;
 	}
@@ -117,9 +122,10 @@ public class UserRepositoryImpl extends DBState implements UserRepository {
 	            userId = rs.getInt("User_id");
 	        }
 	    } catch (SQLException e) {
-	        e.printStackTrace();
+	    	logger.error("UserRepositoryImpl::  SQL Exception generate in getUserIdByUserName method");
+			
 	    }
-	    return userId; // Return -1 if no user found
+	    return userId; 
 	}
 
 
