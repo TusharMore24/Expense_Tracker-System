@@ -76,9 +76,9 @@ public class ReportRepositoryImpl extends DBState implements ReportRepository {
 			stmt= conn.prepareStatement("select amount, description from expenses where user_id=?");
 			stmt.setInt(1, user_id);
 			ResultSet v=stmt.executeQuery();
-			System.out.println("Amount "+" Description");
+			System.out.println("Amount\t\t"+"Description");
 			while(v.next()) {
-				System.out.println(v.getFloat(1)+"  "+v.getString(2));
+				System.out.println(v.getFloat(1)+"\t\t"+v.getString(2));
 			}
 			
 		}

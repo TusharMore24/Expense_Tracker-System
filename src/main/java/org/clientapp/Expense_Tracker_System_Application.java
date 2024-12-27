@@ -23,11 +23,9 @@ import org.service.UserService;
 import org.service.UserServiceImpl;
 
 
-
-
 public class Expense_Tracker_System_Application {  //main Class 
 
-	
+	 
 	
 	private static final Logger logger = LogManager.getLogger(Expense_Tracker_System_Application.class);
 
@@ -43,8 +41,8 @@ public class Expense_Tracker_System_Application {  //main Class
 		CategoryService cservice = new CategoryServiceImpl();
 		BudgetService bservice = new BudgetServiceImpl();
 		ReportService rservice = new ReportServiceImpl();
-		System.out.println("======= WEL COME TO EXPENSE TRACKER SYSTEM =======");
-		System.out.println("Do you have account or wants to create New Account? ");
+		System.out.println("======= WELCOME TO EXPENSE TRACKER SYSTEM =======");
+		System.out.println("Do you have account? ");
 		String yes = sc.nextLine();
 		
 		if (yes.equalsIgnoreCase("no")) {
@@ -63,8 +61,8 @@ public class Expense_Tracker_System_Application {  //main Class
 			String address = sc.nextLine();
 
 			System.out.println(uservice.isAddNewUser(new UserModel(0, userName, passWord, email, p_number, address))
-					? "User added successfully.."
-					: "User NOT added successfully..");
+					? "User added successfully......"
+					: "User NOT added successfully......");
 
 		}
 
@@ -77,7 +75,7 @@ public class Expense_Tracker_System_Application {  //main Class
 		String passWord = sc.nextLine();
 		boolean b = uservice.UserLoginByNamePassWard(userName, passWord);
 		if (b) {
-			System.out.println("Login successfully...");
+			System.out.println("Login successfully.....");
 			int userId = uservice.getUserIdByUserName(userName);
 			CurrentUser_Id.setUser_Id(userId);
 			 float Total_Expense = eservice.getTotalExpensesByUserId(userId);
@@ -125,8 +123,8 @@ public class Expense_Tracker_System_Application {  //main Class
 
 					System.out.println(
 							uservice.isAddNewUser(new UserModel(0, userName, passWord, email, p_number, address))
-									? "User added successfully.."
-									: "User NOT added successfully..");
+									? "User added successfully......."
+									: "User NOT added successfully......");
 
 					break;
 
@@ -138,7 +136,7 @@ public class Expense_Tracker_System_Application {  //main Class
 								.println(u.getUser_id() + "\t" + u.getUserName() + "\t\t" + u.getPassWord() + "\t\t"
 										+ u.getEmail() + "\t\t\t" + u.getP_number() + "\t\t" + u.getAddress()));
 					} else {
-						System.out.println("There is NO data Present");
+						System.out.println("There is NO data Present................");
 					}
 					System.out.println("------------------------------------------------------");
 
@@ -149,9 +147,9 @@ public class Expense_Tracker_System_Application {  //main Class
 					int user_id = sc.nextInt();
 					b = uservice.deleteUserById(user_id);
 					if (b) {
-						System.out.println("User delete SuccessFully...");
+						System.out.println("User delete SuccessFully.............");
 					} else {
-						System.out.println("Some Problem Is there..");
+						System.out.println("Some Problem Is there..............");
 					}
 					break;
 				case 4:
@@ -171,13 +169,10 @@ public class Expense_Tracker_System_Application {  //main Class
 					address = sc.nextLine();
 					System.out.println(
 							uservice.updateUserByName(new UserModel(0, userName, passWord, email, p_number, address))
-									? "Data Updated"
-									: "Some Problem ");
+									? "Data Updated........."
+									: "Some Problem.............");
 					break;
 				case 5:
-					System.out.println("Enter Category_Id");
-					int category_id = sc.nextInt();
-
 					System.out.println("Enter Category_Name");
 					sc.nextLine();
 					String category_name = sc.nextLine();
@@ -185,11 +180,11 @@ public class Expense_Tracker_System_Application {  //main Class
 					System.out.println("Enter Description ");
 					String description = sc.nextLine();
 
-					b = cservice.AddNewCategory(new CategoryModel(category_id, category_name, description));
+					b = cservice.AddNewCategory(new CategoryModel(0, category_name, description));
 					if (b) {
 						System.out.println("Data Savesuccessfully.......");
 					} else {
-						System.out.println("Some Problem is there..");
+						System.out.println("Some Problem is there............");
 					}
 
 					break;
@@ -198,7 +193,7 @@ public class Expense_Tracker_System_Application {  //main Class
 					if (list != null) {
 						list.forEach((v) -> System.out.println(v.getCategory_id() + "\t" + v.getCategory_name() + "\t\t" + v.getDiscrption()));
 					} else {
-						System.out.println("Some Problem Is there...");
+						System.out.println("Some Problem Is there..........");
 					}
 
 					break;
@@ -214,12 +209,12 @@ public class Expense_Tracker_System_Application {  //main Class
 					String date = sc.nextLine();                     //new SimpleDateFormat("yyyy-MM-dd").parse(sc.nextLine());
 
 					System.out.println("Enter category_Id");
-					category_id = sc.nextInt();
+					int category_id = sc.nextInt();
 
 					System.out.println(
 							eservice.AddNewExpenses(new ExpenseModel(0,userId, amount, description, date, category_id))
-									? "Data Updated" 				//expense_id, user_id, amount, category_id, description, date
-									: "Some Problem");
+									? "Data Updated............." 				//expense_id, user_id, amount, category_id, description, date
+									: "Some Problem............");
 
 					break;
 
@@ -230,7 +225,7 @@ public class Expense_Tracker_System_Application {  //main Class
 								.println(v1.getExpense_id() + "\t" + v1.getUser_id() + "\t" + v1.getCategory_id() + "\t"
 										+ v1.getAmount() + "\t\t" + v1.getDescription() + "\t\t\t" + v1.getDate()));
 					} else {
-						System.out.println("Some Problem....");
+						System.out.println("Some Problem.............");
 					}
 
 					break;
@@ -246,7 +241,7 @@ public class Expense_Tracker_System_Application {  //main Class
 						blist.forEach((v1) -> System.out
 								.println(v1.getBudget_id() + "\t" + v1.getUser_id() + "\t" + v1.getBudget_amount()));
 					} else {
-						System.out.println("Some Problem....");
+						System.out.println("Some Problem...........");
 					}
 					break;
 					
@@ -255,9 +250,9 @@ public class Expense_Tracker_System_Application {  //main Class
 					int budget_id = sc.nextInt();
 					b = bservice.IsDeleteByBudget_id(budget_id);
 					if (b) {
-						System.out.println("Data Delete...");
+						System.out.println("Data Delete...........");
 					} else {
-						System.out.println("Some Problem..");
+						System.out.println("Some Problem............");
 					}
 
 					break;
@@ -266,9 +261,9 @@ public class Expense_Tracker_System_Application {  //main Class
 					amount=sc.nextFloat();
 					b=bservice.updateNewBudget(userId, amount);
 					if(b) {
-					System.out.println("Data Updated..");
+					System.out.println("Data Updated.........");
 					}else {
-						System.out.println("Some Problem Is there");
+						System.out.println("Some Problem Is there..............");
 					}
 					
 					break;
@@ -284,7 +279,7 @@ public class Expense_Tracker_System_Application {  //main Class
 					int Report = sc.nextInt();
 					switch (Report) {
 					case 1:
-						System.out.println("Enter Data for chack expense");
+						System.out.println("Enter Date in Format (YYYY-MM-DD)");
 						sc.nextLine();
 						String day = sc.nextLine();
 						 rservice.getReportOfOneDay(day, userId);
@@ -292,21 +287,21 @@ public class Expense_Tracker_System_Application {  //main Class
 
 						break;
 					case 2:
-						System.out.println("Enter Date Of Month");
-						System.out.println("Enter Month Startig Data for chack expense");
+						System.out.println("Enter Starting Date of Month (YYYY-MM-DD)");
+//						System.out.println("Enter Month Startig Data for chack expense");
 						sc.nextLine();
 						String from = sc.nextLine();
-						System.out.println("Enter Data for chack expense");
+						System.out.println("Enter Ending  Date of Month (YYYY-MM-DD)");
 						String end = sc.nextLine();
 						rservice.getReportOfMonth(from, end, userId);
 //						System.out.println(from + " To " + end + ":" + value);
 						break;
 					case 3:
-						System.out.println("Enter Date Of Year");
-						System.out.println("Enter Month Startig Data for chack expense");
+//						System.out.println("Enter Date Of Year");
+						System.out.println("Enter Starting Year  (YYYY-MM-DD)");
 						sc.nextLine();
 						from = sc.nextLine();
-						System.out.println("Enter Data for chack expense");
+						System.out.println("Enter Ending Year (YYYY-MM-DD)");
 						end = sc.nextLine();
 						 rservice.getReportOfYear(from, end, userId);
 //						System.out.println(from + " To " + end + ":" + value);
@@ -321,7 +316,7 @@ public class Expense_Tracker_System_Application {  //main Class
 						break;
 
 					default:
-						System.out.println("Wrong Choise....");
+						System.out.println("Wrong Choise.......");
 						break;
 					}
 
@@ -332,14 +327,14 @@ public class Expense_Tracker_System_Application {  //main Class
 					break;
 
 				default:
-					System.out.println("Wrong Choise...");
+					System.out.println("Wrong Choise..........");
 					break;
 				}
 
 			} while (true);
 
 		} else {
-			System.err.println("User Not Found.....");
+			System.err.println("User Not Found............");
 		}
 		
 		logger.info("Main method end...");
