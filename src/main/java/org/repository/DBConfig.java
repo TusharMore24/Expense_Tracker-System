@@ -16,7 +16,7 @@ public class DBConfig {
 	private static DBConfig db;
 	private static final Logger logger = LogManager.getLogger(DBConfig.class);
 
-	protected DBConfig() {
+	private  DBConfig() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			File f = new File(".");
