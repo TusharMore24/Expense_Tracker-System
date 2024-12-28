@@ -4,7 +4,7 @@ import java.sql.*;
 
 
 public class DBState {
-	static DBConfig config = DBConfig.getInstatance();
+	static DBConfig config = DBConfig.getInstatance();   //Initialize the database connection
 	protected  Connection conn = config.getConnection();
 	protected  PreparedStatement stmt = config.getStatement();
 	protected  ResultSet rs = config.getResult();
