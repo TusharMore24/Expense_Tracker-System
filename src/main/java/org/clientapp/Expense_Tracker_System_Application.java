@@ -206,14 +206,14 @@ public class Expense_Tracker_System_Application {  //main Class
 					description = sc.nextLine();
 
 					System.out.println("Enter date (YYYY-MM-DD)");
-					String date = sc.nextLine();                     //new SimpleDateFormat("yyyy-MM-dd").parse(sc.nextLine());
+					String date = sc.nextLine();                    
 
 					System.out.println("Enter category_Id");
 					int category_id = sc.nextInt();
 
-					System.out.println(
+					System.out.println(				//A new instance of the ExpenseModel class 
 							eservice.AddNewExpenses(new ExpenseModel(0,userId, amount, description, date, category_id))
-									? "Data Updated............." 				//expense_id, user_id, amount, category_id, description, date
+									? "Data Updated............." 				
 									: "Some Problem............");
 
 					break;

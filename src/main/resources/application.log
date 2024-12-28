@@ -55,3 +55,15 @@
 2024-12-27 22:47:26 [main] INFO  org.clientapp.Expense_Tracker_System_Application - Main method end...
 2024-12-27 22:47:35 [main] INFO  org.clientapp.Expense_Tracker_System_Application - Main Method Start
 2024-12-27 22:47:35 [main] INFO  org.repository.DBConfig - Connection established successfully!
+2024-12-28 00:00:24 [main] INFO  org.clientapp.Expense_Tracker_System_Application - Main Method Start
+2024-12-28 00:00:25 [main] INFO  org.repository.DBConfig - Connection established successfully!
+2024-12-28 17:19:36 [main] INFO  org.clientapp.Expense_Tracker_System_Application - Main Method Start
+2024-12-28 17:19:36 [main] INFO  org.repository.DBConfig - Connection established successfully!
+2024-12-28 17:29:00 [main] INFO  org.clientapp.Expense_Tracker_System_Application - Main Method Start
+2024-12-28 17:29:00 [main] INFO  org.repository.DBConfig - Connection established successfully!
+2024-12-28 17:32:49 [main] INFO  org.clientapp.Expense_Tracker_System_Application - Main Method Start
+2024-12-28 17:32:50 [main] INFO  org.repository.DBConfig - Connection established successfully!
+2024-12-28 21:44:59 [main] INFO  org.clientapp.Expense_Tracker_System_Application - Main Method Start
+2024-12-28 21:45:00 [main] INFO  org.repository.DBConfig - Connection established successfully!
+2024-12-29 00:01:12 [main] INFO  org.clientapp.Expense_Tracker_System_Application - Main Method Start
+2024-12-29 00:01:13 [main] INFO  org.repository.DBConfig - Connection established successfully!
