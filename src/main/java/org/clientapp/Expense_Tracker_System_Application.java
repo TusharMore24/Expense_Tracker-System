@@ -43,9 +43,9 @@ public class Expense_Tracker_System_Application {  //main Class
 		ReportService rservice = new ReportServiceImpl();
 		System.out.println("======= WELCOME TO EXPENSE TRACKER SYSTEM =======");
 		System.out.println("Do you have account? ");
-		String yes = sc.nextLine();
+		String acc = sc.nextLine();
 		
-		if (yes.equalsIgnoreCase("no")) {
+		if (acc.equalsIgnoreCase("no")) {
 			System.out.println("Enete User Name");
 			String userName = sc.nextLine();
 
@@ -66,7 +66,7 @@ public class Expense_Tracker_System_Application {  //main Class
 
 		}
 
-		System.out.println("Now you can login.............");
+		System.out.println("Ok Now you can login.............");
 		System.out.println("Enter UserName");
 
 		String userName = sc.nextLine();
